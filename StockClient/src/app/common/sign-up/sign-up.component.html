@@ -1,0 +1,69 @@
+<header class="shadow">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1 class="tm-site-title mb-0">Stock Charts</h1>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<section class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form">
+            <form (ngSubmit)="onSubmit()">
+                <div class="card shadow">
+                    <p class="h4 card-header">Register</p>
+                   
+                        <form (ngSubmit)="onSubmit()">
+
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                   
+                                </div>
+                               <b>Username</b> <input [(ngModel)]="username" name="username" type="text" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                   
+                                </div>
+                              <b>Password</b>  <input [(ngModel)]="password" name="password" type="text" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                             <b>Confirm password</b>   <input [(ngModel)]="rPassword" name="rPassword" type="text" class="form-control"
+                                    placeholder="Re-enter Password" />
+                            </div>
+                            <small *ngIf="password!==rPassword" class="text-danger">Passwords do not match</small>
+
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                   
+                                </div>
+                               <b>Email</b> <input [(ngModel)]="email" name="email" type="text" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                   
+                                </div>
+                               <b>Mobile</b> <input [(ngModel)]="mobile" name="mobile" type="text" class="form-control" />
+                            </div>
+                            <div class="d-flex no-gutters">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                                </div>
+                                <div>
+                                    <button routerLink="/sign-in" type="button" class="btn btn-secondary">Back to Sign-in</button>
+                                </div>
+                            </div>
+                        </form>
+
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

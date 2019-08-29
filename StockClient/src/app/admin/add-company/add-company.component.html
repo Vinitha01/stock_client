@@ -1,0 +1,53 @@
+<div class="card shadow">
+    <p class="h4 card-header">Add New Company</p>
+    <div class="card-body bg-light">
+        <p class="card-text h6">Please fill the details:</p>
+        <form (ngSubmit)="onSubmit()">
+            <div class="input-group mt-3 mb-3">
+                <input [(ngModel)]="company && company.companyName" name="companyName" type="text" placeholder="Company name" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+              
+                <input [(ngModel)]="company.turnover" name="turnover" type="text"  placeholder="Turnover in Rs" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <div class="input-group mt-3 mb-3">
+                
+                <input [(ngModel)]="company.ceo" name="ceo" type="text" placeholder="CEO" class="form-control" />
+            </div>
+            <div class="input-group mt-3 mb-3">
+
+                <input [(ngModel)]="company.boardOfDirector" name="boardOfDirector" placeholder="Board Of Director" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+               
+                <textarea [(ngModel)]="company.brief" name="brief" class="form-control" placeholder="About company"aria-label="With textarea"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                
+                <select [(ngModel)]="company.stockExchange" name="stockExchange" class="custom-select" id="inputGroupSelect01" required>
+                    <option value="" selected>Choose Stock Exchange...</option>
+                    <option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.stockExchangeName">{{ stockExchange?.stockExchangeName }}</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                
+                <select [(ngModel)]="company.sector" name="sector" class="custom-select" id="inputGroupSelect02" required>
+                    <option value="" selected>Choose Sector...</option>
+                    <option *ngFor="let sector of sectors" [value]="sector.sectorName">{{ sector?.sectorName }}</option>
+                </select>
+            </div>
+            <div class="d-flex no-gutters">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+                <div>
+                    <button (click)="backClicked()" type="button" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

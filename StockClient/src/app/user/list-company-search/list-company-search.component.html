@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2>List of Companies</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+        <thead >
+                <tr class="header">
+                    <th style="width:20%;"scope="col">#</th>
+                    <th style="width:20%;"scope="col">Company Name</th>
+                    <th style="width:20%;"scope="col">Stock Exchanges</th>
+                    <th style="width:40%;"scope="col">About</th>
+                </tr>
+            </thead>
+  
+            <tbody>
+                    <tr *ngFor="let company of companies">
+                        <th scope="row">{{ company?.id }}</th>
+                        <td>{{ company?.companyName }}</td>
+                        <td>{{ company?.stockExchange }}</td>
+                        <td>{{ company?.brief }}</td>
+                    </tr>
+                </tbody>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
